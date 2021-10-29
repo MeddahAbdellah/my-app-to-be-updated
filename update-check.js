@@ -50,7 +50,3 @@ var autoupdater = new AutoUpdater({
 
   // Start checking
   autoupdater.fire('check');
-  
-  setInterval(() => {
-      console.log('checking Updates')
-  }, 5000);
