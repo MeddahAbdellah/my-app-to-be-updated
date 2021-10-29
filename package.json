@@ -1,6 +1,10 @@
 {
   "name": "ls",
   "version": "1.0.0",
+  "auto-updater": {
+    "repo": "MeddahAbdellah/my-app-to-be-updated",
+    "branch": "master"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,6 +18,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MeddahAbdellah/my-app-to-be-updated/issues"
+  },
+  "dependencies": {
+    "auto-updater": "^1.0.2"
   },
   "homepage": "https://github.com/MeddahAbdellah/my-app-to-be-updated#readme"
 }
