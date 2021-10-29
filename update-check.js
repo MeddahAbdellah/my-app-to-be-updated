@@ -3,7 +3,8 @@ const git = simpleGit();
 
 const test = async () => {
   try {
-    await git.init().addRemote('origin', '...remote.git');
+    if(!process.argv.slice(-1)) return
+    await git.init().addRemote('origin', process.argv.slice(-1));
   } catch(e){};
 
   const wholeRepoStatus = await git.status();
