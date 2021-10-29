@@ -1,6 +1,6 @@
 {
   "name": "ls",
-  "version": "4.0.1",
+  "version": "7.0.1",
   "auto-updater": {
     "repo": "MeddahAbdellah/my-app-to-be-updated",
     "branch": "master"
@@ -20,7 +20,8 @@
     "url": "https://github.com/MeddahAbdellah/my-app-to-be-updated/issues"
   },
   "dependencies": {
-    "auto-updater": "^1.0.2"
+    "auto-updater": "^1.0.2",
+    "simple-git": "^2.47.0"
   },
   "homepage": "https://github.com/MeddahAbdellah/my-app-to-be-updated#readme"
 }
