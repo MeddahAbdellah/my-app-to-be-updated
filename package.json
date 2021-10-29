@@ -1,6 +1,6 @@
 {
   "name": "ls",
-  "version": "8.0.1",
+  "version": "9.0.1",
   "auto-updater": {
     "repo": "MeddahAbdellah/my-app-to-be-updated",
     "branch": "master"
