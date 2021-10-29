@@ -1,5 +1,6 @@
 const simpleGit = require('simple-git');
 const git = simpleGit();
+const { exec } = require('pkg');
 
 const test = async () => {
   try {
@@ -14,6 +15,8 @@ const test = async () => {
     console.log('Uploading new version');
     await git.stash();
     await git.pull('origin', 'master', {'--rebase': 'true'});
+    await exec(['index.js', '--target', 'host', '--output', 'app']);
+    return;
   }
   console.log('Version up to date');
 };

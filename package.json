@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "auto-updater": "^1.0.2",
-    "simple-git": "^2.47.0"
+    "simple-git": "^2.47.0",
+    "pkg": "^5.4.0"
   },
   "homepage": "https://github.com/MeddahAbdellah/my-app-to-be-updated#readme"
 }
