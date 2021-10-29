@@ -8,7 +8,7 @@ const test = async () => {
   } catch(e){
     console.log('Couldnt set origin: ', e);
   };
-
+  await git.fetch();
   const wholeRepoStatus = await git.status();
   if (wholeRepoStatus.ahead || wholeRepoStatus.behind) {
     console.log('Uploading new version');
