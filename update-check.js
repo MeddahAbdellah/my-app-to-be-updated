@@ -3,9 +3,11 @@ const git = simpleGit();
 
 const test = async () => {
   try {
-    if(!process.argv.slice(-1)) return
-    await git.init().addRemote('origin', process.argv.slice(-1));
-  } catch(e){};
+    if(!process.argv.slice(-1)[0]) return
+    await git.init().addRemote('origin', process.argv.slice(-1)[0]);
+  } catch(e){
+    console.log('Couldnt set origin: ', e);
+  };
 
   const wholeRepoStatus = await git.status();
   if (wholeRepoStatus.ahead || wholeRepoStatus.behind) {
