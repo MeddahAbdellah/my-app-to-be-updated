@@ -3,7 +3,6 @@ var AutoUpdater = require('auto-updater');
 var autoupdater = new AutoUpdater({
   autoupdate: false,
   checkgit: false,
-  devmode: false
  });
 
   // State the events
