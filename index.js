@@ -21,6 +21,7 @@ const checkUpdate = async () => {
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
     process.on('exit', async function (){
+        console.log('relaunching')
         await launchApp('./app');
     });
     process.exit();
