@@ -1,6 +1,6 @@
 {
   "name": "ls",
-  "version": "10.0.16",
+  "version": "10.0.17",
   "auto-updater": {
     "repo": "MeddahAbdellah/my-app-to-be-updated",
     "branch": "master"
