@@ -5,7 +5,7 @@ const launchApp = require('child_process').spawn;
 var pjson = require('./package.json');
 
 
-(function main() {
+(async function main() {
     if (process.env.process_restarting) {
       delete process.env.process_restarting;
       // Give old process one second to shut down before continuing ...
