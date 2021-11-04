@@ -32,10 +32,7 @@ const argv = key => {
     await git.stash();
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
-    const child = spawnCommand('./app');
-    child.stdout.on('data', (data) => {
-      console.log(`stdout ${data}`);
-    });
+    spawnCommand('./app');
     return;
   }
 })();
