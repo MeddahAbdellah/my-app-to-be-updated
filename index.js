@@ -3,4 +3,12 @@ const pjson = require('./package.json');
 spawn('node',['updater.js', `--pid=${process.pid}`]);
 
 // app code here
-setInterval(() => { console.log('app running: ', pjson.version); }, 1000);
+
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+   res.send('app running: ', pjson.version);
+})
+
+app.listen(8081);
