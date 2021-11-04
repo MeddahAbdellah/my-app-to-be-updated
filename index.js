@@ -30,7 +30,7 @@ var pjson = require('./package.json');
         await exec(['index.js', '--target', 'host', '--output', 'app']);
         launchApp(process.argv[0], process.argv.slice(1), {
             env: { process_restarting: 1 },
-            stdio: 'ignore'
+            detached: true,
           }).unref();
         return;
       }
