@@ -2,7 +2,7 @@ const simpleGit = require('simple-git');
 const git = simpleGit();
 const { exec } = require('pkg');
 const spawnCommand = require('child_process').spawn;
-const execCommand = require('child_process').spawn;
+const execCommand = require('child_process').exec;
 const argv = key => {
   // Return true if the key exists and a value is defined
   if ( process.argv.includes( `--${ key }` ) ) return true;
