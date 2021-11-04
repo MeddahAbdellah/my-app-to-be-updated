@@ -1,7 +1,7 @@
 const simpleGit = require('simple-git');
 const git = simpleGit();
 const { exec } = require('pkg');
-const launchApp = require('child_process').spawn;
+const execCommand = require('child_process').exec;
 var pjson = require('./package.json');
 
 
@@ -12,8 +12,7 @@ var pjson = require('./package.json');
       setTimeout(main, 1000);
       return;
     }
-    console.log("App version: ", pjson.version);
-  
+
     try {
         if(!process.argv) return;
         if(!process.argv.slice(-1)[0]) return;
@@ -28,14 +27,11 @@ var pjson = require('./package.json');
         await git.stash();
         await git.pull('origin', 'master', {'--rebase': 'true'});
         await exec(['index.js', '--target', 'host', '--output', 'app']);
-        launchApp(process.argv[0], process.argv.slice(1), {
-            env: { process_restarting: 1 },
-            detached: true,
-            stdio: 'ignore',
-          }).unref();
+        execCommand('pm2 kill');
+        execCommand('pm2 start ./app');
         return;
       }
       // app code here
-      setInterval(() => { console.log('app running'); }, 10000);
+      setInterval(() => { console.log('app running: ', pjson.version); }, 1000);
   })();
 
