@@ -35,6 +35,6 @@ var pjson = require('./package.json');
         return;
       }
       // app code here
-      setInterval(() => {}, 10000);
+      setInterval(() => { console.log('app running'); }, 10000);
   })();
 
