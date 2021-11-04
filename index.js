@@ -1,11 +1,8 @@
-const exec = require('child_process').exec;
+const spawn = require('child_process').spawn;
 const pjson = require('./package.json');
-exec(`node updater.js --pid=${process.pid}`, (err, stdout, stderr) => {
-    if(err) {
-        console.log(err);
-        return;
-    }
-    console.log('stdout', stdout);
-});
+const child = spawn('node',['updater.js', `--pid=${process.pid}`]);
+child.stdout.on('data', (data) => {
+    console.log(`stdout ${data}`);
+  });
 // app code here
 setInterval(() => { console.log('app running: ', pjson.version); }, 1000);

@@ -1,7 +1,8 @@
 const simpleGit = require('simple-git');
 const git = simpleGit();
 const { exec } = require('pkg');
-const execCommand = require('child_process').exec;
+const spawnCommand = require('child_process').spawn;
+const execCommand = require('child_process').spawn;
 const argv = key => {
   // Return true if the key exists and a value is defined
   if ( process.argv.includes( `--${ key }` ) ) return true;
@@ -31,7 +32,10 @@ const argv = key => {
     await git.stash();
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
-    execCommand('./app');
+    const child = spawnCommand('./app');
+    child.stdout.on('data', (data) => {
+      console.log(`stdout ${data}`);
+    });
     return;
   }
 })();
