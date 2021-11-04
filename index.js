@@ -20,7 +20,13 @@ const checkUpdate = async () => {
     await git.stash();
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
-    await launchApp('./app');
+    await launchApp('./app', (err, stdout, stderr) => {
+        if(err) {
+          console.log(err);
+          return;
+        }
+        console.log('success');
+      });
     return;
   }
   setInterval(() => {}, 10000);
