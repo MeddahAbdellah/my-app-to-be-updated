@@ -1,7 +1,7 @@
 const simpleGit = require('simple-git');
 const git = simpleGit();
 const { exec } = require('pkg');
-const launchApp = require('child_process').exec;
+const launchApp = require('child_process').spawn;
 var pjson = require('./package.json');
 
 console.log("App version: ", pjson.version);
