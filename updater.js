@@ -31,7 +31,6 @@ const argv = key => {
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
     execCommand('./app');
-    execCommand(`kill -9 ${argv('pid')}`);
     return;
   }
 })();
