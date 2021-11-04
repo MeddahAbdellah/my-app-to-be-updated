@@ -32,7 +32,7 @@ const argv = key => {
     await git.stash();
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
-    spawnCommand('./app');
+    execCommand('./app');
     return;
   }
 })();
