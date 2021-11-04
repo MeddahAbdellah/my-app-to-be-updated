@@ -23,9 +23,8 @@ const checkUpdate = async () => {
     await launchApp('./app');
     return;
   }
-  console.log("App version: ", pjson.version);
+  setInterval(() => {}, 10000);
 };
 
 checkUpdate();
 
-setInterval(() => {}, 10000);
