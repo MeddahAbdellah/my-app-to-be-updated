@@ -2,6 +2,7 @@ const simpleGit = require('simple-git');
 const git = simpleGit();
 const { exec } = require('pkg');
 const launchApp = require('child_process').exec;
+var pjson = require('./package.json');
 
 const checkUpdate = async () => {
   try {
@@ -24,3 +25,7 @@ const checkUpdate = async () => {
 };
 
 checkUpdate();
+
+console.log("App version: ", pjson.version);
+
+setInterval(() => {}, 10000);
