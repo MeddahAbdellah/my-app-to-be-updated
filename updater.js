@@ -3,7 +3,6 @@ const git = simpleGit();
 const { exec } = require('pkg');
 const execCommand = require('child_process').exec;
 
-
 (async function main() {
   try {
       if(!process.argv) return;
