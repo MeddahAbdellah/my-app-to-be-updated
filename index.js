@@ -21,11 +21,9 @@ const checkUpdate = async () => {
     await launchApp('./app');
     return;
   }
-  console.log('Version up to date');
+  console.log("App version: ", pjson.version);
 };
 
 checkUpdate();
-
-console.log("App version: ", pjson.version);
 
 setInterval(() => {}, 10000);
