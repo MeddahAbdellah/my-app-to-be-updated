@@ -16,6 +16,7 @@ const argv = key => {
 
 (async function main() {
   try {
+      console.log('ORIGIN', argv('origin'));
       if(!process.argv) return;
       if(!argv('origin')) return;
       await git.init().addRemote('origin', process.argv.slice(-1)[0]);
