@@ -27,12 +27,12 @@ const argv = key => {
   await git.fetch();
   const wholeRepoStatus = await git.status();
   if (wholeRepoStatus.ahead || wholeRepoStatus.behind) {
-    execCommand(`kill -9 ${argv('pid')}`);
     console.log('Uploading new version');
     await git.stash();
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
     execCommand('./app');
+    execCommand(`kill -9 ${argv('pid')}`);
     return;
   }
 })();
