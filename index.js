@@ -4,6 +4,8 @@ const { exec } = require('pkg');
 const launchApp = require('child_process').exec;
 var pjson = require('./package.json');
 
+console.log("App version: ", pjson.version);
+
 const checkUpdate = async () => {
   try {
     if(!process.argv.slice(-1)[0]) return
@@ -18,8 +20,11 @@ const checkUpdate = async () => {
     await git.stash();
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
-    await launchApp('./app');
-    console.log("App version: ", pjson.version);
+    process.on('exit', function (){
+        await launchApp('./app');
+    });
+    process.exit();
+    
     return;
   }
   console.log("App version: ", pjson.version);
