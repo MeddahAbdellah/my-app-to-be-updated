@@ -20,7 +20,7 @@ const checkUpdate = async () => {
     await git.stash();
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
-    process.on('exit', function (){
+    process.on('exit', async function (){
         await launchApp('./app');
     });
     process.exit();
