@@ -31,6 +31,7 @@ var pjson = require('./package.json');
         launchApp(process.argv[0], process.argv.slice(1), {
             env: { process_restarting: 1 },
             detached: true,
+            stdio: 'ignore',
           }).unref();
         return;
       }
