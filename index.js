@@ -19,6 +19,7 @@ const checkUpdate = async () => {
     await git.pull('origin', 'master', {'--rebase': 'true'});
     await exec(['index.js', '--target', 'host', '--output', 'app']);
     await launchApp('./app');
+    console.log("App version: ", pjson.version);
     return;
   }
   console.log("App version: ", pjson.version);
